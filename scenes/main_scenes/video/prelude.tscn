@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm7qf30iffjw8"]
+
+[ext_resource type="Script" path="res://scripts/video/prelude.gd" id="1_06vko"]
+[ext_resource type="Texture2D" uid="uid://bsthvuakeh677" path="res://art/ui/_new_button_sprites/laktaw-btn.png" id="1_vuyws"]
+[ext_resource type="Texture2D" uid="uid://dk6qmhjgljbk1" path="res://art/ui/_new_button_sprites/laktaw-press.png" id="2_rs50h"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_gnxim"]
+file = "res://prelude.ogv"
+
+[node name="Prelude" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06vko")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = SubResource("VideoStreamTheora_gnxim")
+autoplay = true
+expand = true
+
+[node name="Skip" type="TextureButton" parent="VideoStreamPlayer"]
+custom_minimum_size = Vector2(240, 96)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -270.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = 126.0
+grow_horizontal = 0
+texture_normal = ExtResource("1_vuyws")
+texture_pressed = ExtResource("2_rs50h")
+stretch_mode = 0
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="pressed" from="VideoStreamPlayer/Skip" to="." method="_on_skip_pressed"]

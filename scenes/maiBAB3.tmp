@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://cdueccuslp4js"]
+
+[ext_resource type="Script" path="res://scripts/game_manager/main_menu.gd" id="1_ciru4"]
+[ext_resource type="Texture2D" uid="uid://c7hfxu58vp8sj" path="res://art/ui/buttons/play-btn.png" id="1_nhhxu"]
+[ext_resource type="Texture2D" uid="uid://e34nxsqduq5o" path="res://art/ui/buttons/play-press.png" id="2_51r55"]
+[ext_resource type="Texture2D" uid="uid://d0v7v8w0tf4qw" path="res://art/ui/buttons/option-btn.png" id="4_sl1t4"]
+[ext_resource type="Texture2D" uid="uid://bus2pscu7h4bw" path="res://art/ui/buttons/quit-btn.png" id="5_ba5ug"]
+[ext_resource type="Texture2D" uid="uid://dpndw6km13xa" path="res://art/ui/buttons/option-pressed.png" id="5_lf4xc"]
+[ext_resource type="Texture2D" uid="uid://bfefjr0f6tjbe" path="res://art/ui/buttons/quit-press.png" id="6_jhnhj"]
+[ext_resource type="Texture2D" uid="uid://bkmvgf2n2um8x" path="res://art/ui/title-screen2.png" id="8_15g16"]
+[ext_resource type="PackedScene" uid="uid://ctfmy3ewqm4dm" path="res://scenes/parallaxBG/main_menu_bg.tscn" id="8_55apw"]
+
+[sub_resource type="GDScript" id="GDScript_8jbsn"]
+script/source = "extends CanvasLayer
+func _ready():
+	#get_viewport().size = DisplayServer.screen_get_size()
+	pass
+"
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ciru4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = SubResource("GDScript_8jbsn")
+
+[node name="GameTitle" type="TextureRect" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -288.0
+offset_top = 20.0
+offset_right = 16.0
+offset_bottom = 100.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_15g16")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -32.0
+offset_right = 2.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+
+[node name="Play" type="TextureButton" parent="CanvasLayer/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("1_nhhxu")
+texture_pressed = ExtResource("2_51r55")
+
+[node name="Options" type="TextureButton" parent="CanvasLayer/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("4_sl1t4")
+texture_pressed = ExtResource("5_lf4xc")
+
+[node name="Quit" type="TextureButton" parent="CanvasLayer/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("5_ba5ug")
+texture_pressed = ExtResource("6_jhnhj")
+
+[node name="MainMenuBG" parent="." instance=ExtResource("8_55apw")]
+
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer2/Play" to="." method="_on_play_pressed"]
