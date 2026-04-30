@@ -1,15 +1,29 @@
 # Godot 4+ specific ignores
 .godot/
 
-# Godot-specific ignores
+# Godot-specific intermediate and binary files
+# (Still good to have as a fallback or for shared plugins)
 .import/
 export.cfg
 export_presets.cfg
+export_credentials.cfg
 
 # Imported translations (automatically generated from CSV files)
 *.translation
 
-# Mono-specific ignores
+# Mono/C# specific files (Only if you are using the .NET version)
 .mono/
 data_*/
+bin/
+obj/
+modules/
 mono_crash.*.json
+
+# Exported binaries (Don't commit your actual game builds)
+build/
+export/
+
+# System and Editor files
+.DS_Store
+Thumbs.db
+*.tmp
