@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://c2i4bdf2bqj5v"]
 
 [ext_resource type="Script" path="res://scripts/transition_anim/postlude.gd" id="1_1mdy7"]
-[ext_resource type="AudioStream" uid="uid://cjoerofk8f3ll" path="res://sound_fx/ending/postlude.wav" id="1_llp7n"]
 [ext_resource type="Texture2D" uid="uid://dm2r48nw1ablk" path="res://art/transitions_anim/background.png" id="2_aanru"]
 [ext_resource type="Texture2D" uid="uid://clrjl1ar1co5x" path="res://art/transitions_anim/ending/scene_1.jpg" id="3_awl0c"]
 [ext_resource type="Texture2D" uid="uid://b1qqa8erkakhe" path="res://art/transitions_anim/ending/scene_2.jpg" id="4_cv0sf"]
 [ext_resource type="Texture2D" uid="uid://b13pcjm8dayu2" path="res://art/transitions_anim/ending/scene_3.jpg" id="5_tn8pm"]
+[ext_resource type="AudioStream" uid="uid://bfuhq6sjybhgy" path="res://sound_fx/ending/postlude.ogg" id="6_b4p4r"]
 
 [sub_resource type="Animation" id="Animation_10qi7"]
 length = 0.001
@@ -177,7 +177,7 @@ expand_mode = 1
 [node name="SoundFX" type="Node" parent="."]
 
 [node name="postlude_sfx" type="AudioStreamPlayer2D" parent="SoundFX"]
-stream = ExtResource("1_llp7n")
+stream = ExtResource("6_b4p4r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bus2pscu7h4bw" path="res://art/ui/buttons/quit-btn.png" id="7_oalth"]
 [ext_resource type="Texture2D" uid="uid://bfefjr0f6tjbe" path="res://art/ui/buttons/quit-press.png" id="8_iecer"]
 [ext_resource type="PackedScene" uid="uid://ctfmy3ewqm4dm" path="res://scenes/parallaxBG/main_menu_bg.tscn" id="9_5b7t8"]
-[ext_resource type="AudioStream" uid="uid://3ki7e7gd7sy2" path="res://sound_fx/music/music_janen.wav" id="10_lsbsu"]
+[ext_resource type="AudioStream" uid="uid://bujmf73u5dnrc" path="res://sound_fx/music/music_janen.ogg" id="10_rh8ua"]
 [ext_resource type="Texture2D" uid="uid://b81pcjqjq2x2v" path="res://art/ui/textbox-2.png" id="11_8ssip"]
 [ext_resource type="FontFile" uid="uid://bph4vobtaswbg" path="res://font/manaspc.ttf" id="12_u2ofm"]
 [ext_resource type="Texture2D" uid="uid://dt3kv40vam4hd" path="res://art/ui/buttons/back-def.png" id="12_wlxm6"]
@@ -82,7 +82,7 @@ stretch_mode = 5
 [node name="MainMenuBG" parent="." instance=ExtResource("9_5b7t8")]
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_lsbsu")
+stream = ExtResource("10_rh8ua")
 bus = &"Music"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]

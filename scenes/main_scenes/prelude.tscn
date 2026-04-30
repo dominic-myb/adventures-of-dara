@@ -7,11 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://ct0hkigalgk7y" path="res://art/transitions_anim/main_to_sea/scene3.jpg" id="4_of3k0"]
 [ext_resource type="Texture2D" uid="uid://drgf1f412lpv2" path="res://art/transitions_anim/main_to_sea/scene4.jpg" id="5_xjanh"]
 [ext_resource type="Texture2D" uid="uid://d0ur8cu4tdgxr" path="res://art/transitions_anim/main_to_sea/scene5.jpg" id="6_o1blw"]
-[ext_resource type="AudioStream" uid="uid://cdmhci8c7v7sv" path="res://sound_fx/main_to_sea/Audio - 1.wav" id="8_euum1"]
-[ext_resource type="AudioStream" uid="uid://gc00s5h26qyn" path="res://sound_fx/main_to_sea/Audio - 2.wav" id="9_jmn5r"]
-[ext_resource type="AudioStream" uid="uid://cekod68grtqdf" path="res://sound_fx/main_to_sea/Audio - 3.wav" id="10_2uta2"]
-[ext_resource type="AudioStream" uid="uid://dx6tthnnl8ovi" path="res://sound_fx/main_to_sea/Audio - 4.wav" id="11_glpaj"]
-[ext_resource type="AudioStream" uid="uid://coid68vap5nem" path="res://sound_fx/main_to_sea/Audio - 5.wav" id="12_nxfda"]
+[ext_resource type="AudioStream" uid="uid://bcku1n47qepsn" path="res://sound_fx/main_to_sea/intro_1.ogg" id="9_yeeta"]
+[ext_resource type="AudioStream" uid="uid://bilhal5nw8343" path="res://sound_fx/main_to_sea/intro_2.ogg" id="10_7x3i4"]
+[ext_resource type="AudioStream" uid="uid://bmlld6b4mpxln" path="res://sound_fx/main_to_sea/intro_3.ogg" id="11_4s2my"]
+[ext_resource type="AudioStream" uid="uid://dxqna8kl8r2kq" path="res://sound_fx/main_to_sea/intro_4.ogg" id="12_xfk0m"]
+[ext_resource type="AudioStream" uid="uid://cnundd7civ2te" path="res://sound_fx/main_to_sea/intro_5.ogg" id="13_4yv0p"]
 [ext_resource type="Texture2D" uid="uid://bsthvuakeh677" path="res://art/ui/_new_button_sprites/laktaw-btn.png" id="13_sfo0p"]
 [ext_resource type="Texture2D" uid="uid://dk6qmhjgljbk1" path="res://art/ui/_new_button_sprites/laktaw-press.png" id="14_s1pig"]
 
@@ -430,19 +430,19 @@ libraries = {
 [node name="SoundFX" type="Node" parent="."]
 
 [node name="audio_1" type="AudioStreamPlayer2D" parent="SoundFX"]
-stream = ExtResource("8_euum1")
+stream = ExtResource("9_yeeta")
 
 [node name="audio_2" type="AudioStreamPlayer2D" parent="SoundFX"]
-stream = ExtResource("9_jmn5r")
+stream = ExtResource("10_7x3i4")
 
 [node name="audio_3" type="AudioStreamPlayer2D" parent="SoundFX"]
-stream = ExtResource("10_2uta2")
+stream = ExtResource("11_4s2my")
 
 [node name="audio_4" type="AudioStreamPlayer2D" parent="SoundFX"]
-stream = ExtResource("11_glpaj")
+stream = ExtResource("12_xfk0m")
 
 [node name="audio_5" type="AudioStreamPlayer2D" parent="SoundFX"]
-stream = ExtResource("12_nxfda")
+stream = ExtResource("13_4yv0p")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
