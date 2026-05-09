@@ -5,12 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://cued3i8ywxtis" path="res://art/player/dara_earth/dara_fall.png" id="2_f7i82"]
 [ext_resource type="Texture2D" uid="uid://c1kaj6gjtip0y" path="res://art/player/dara_earth/dara_move.png" id="3_2awti"]
 [ext_resource type="Texture2D" uid="uid://cddwhwnlnhsp" path="res://art/player/dara_earth/dara_jump2.png" id="4_phso2"]
-[ext_resource type="AudioStream" uid="uid://3ki7e7gd7sy2" path="res://sound_fx/music/music_janen.wav" id="6_45ja8"]
-[ext_resource type="AudioStream" uid="uid://6txrb1hvq4kj" path="res://sound_fx/sea_ingame/quest_accept.wav" id="7_inwa5"]
-[ext_resource type="AudioStream" uid="uid://d0ftrme57xv0h" path="res://sound_fx/sea_ingame/quest_done.wav" id="8_q2w2i"]
-[ext_resource type="AudioStream" uid="uid://r5ryg8j5bas" path="res://sound_fx/sea_ingame/quest_failed.wav" id="9_ot7xm"]
-[ext_resource type="AudioStream" uid="uid://bw2tlkcwqumui" path="res://sound_fx/soundfx/q5_right_answer.wav" id="10_8s1bn"]
-[ext_resource type="AudioStream" uid="uid://cabkefr6ji6ov" path="res://sound_fx/soundfx/q5_wrong_answer.wav" id="11_wnrqu"]
+[ext_resource type="AudioStream" uid="uid://bujmf73u5dnrc" path="res://sound_fx/music/music_janen.ogg" id="6_45ja8"]
+[ext_resource type="AudioStream" uid="uid://bngrupkkgu1w8" path="res://sound_fx/sea_ingame/quest_accept.ogg" id="7_w78pd"]
+[ext_resource type="AudioStream" uid="uid://0py1ni6jxax4" path="res://sound_fx/sea_ingame/quest_done.ogg" id="8_memcn"]
+[ext_resource type="AudioStream" uid="uid://cb71a5m1cu1o5" path="res://sound_fx/sea_ingame/quest_failed.ogg" id="9_1xu8s"]
+[ext_resource type="AudioStream" uid="uid://b6ayiry8g0im3" path="res://sound_fx/soundfx/q5_right_answer.ogg" id="10_3r5it"]
+[ext_resource type="AudioStream" uid="uid://dg7qivi27dg0k" path="res://sound_fx/soundfx/q5_wrong_answer.ogg" id="11_irqiv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c366x"]
 atlas = ExtResource("2_f7i82")
@@ -475,18 +475,18 @@ process_mode = 3
 stream = ExtResource("6_45ja8")
 
 [node name="OnAccept" type="AudioStreamPlayer2D" parent="SoundFX"]
-stream = ExtResource("7_inwa5")
+stream = ExtResource("7_w78pd")
 
 [node name="OnDone" type="AudioStreamPlayer2D" parent="SoundFX"]
-stream = ExtResource("8_q2w2i")
+stream = ExtResource("8_memcn")
 
 [node name="OnFailed" type="AudioStreamPlayer2D" parent="SoundFX"]
-stream = ExtResource("9_ot7xm")
+stream = ExtResource("9_1xu8s")
 
 [node name="Right" type="AudioStreamPlayer2D" parent="SoundFX" groups=["Right"]]
-stream = ExtResource("10_8s1bn")
+stream = ExtResource("10_3r5it")
 
 [node name="Wrong" type="AudioStreamPlayer2D" parent="SoundFX" groups=["Wrong"]]
-stream = ExtResource("11_wnrqu")
+stream = ExtResource("11_irqiv")
 
 [connection signal="finished" from="SoundFX/Music" to="." method="_on_music_finished"]

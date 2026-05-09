@@ -5,6 +5,19 @@ const path = require("path");
 const PORT = 3000;
 const base = path.join(__dirname, "dist");
 
+const gzipEncoded = {
+  ".wasm": "application/wasm",
+  ".pck":  "application/octet-stream",
+};
+
+const contentTypes = {
+  ".html": "text/html",
+  ".js":   "application/javascript",
+  ".wasm": "application/wasm",
+  ".pck":  "application/octet-stream",
+  ".png":  "image/png",
+};
+
 const server = http.createServer((req, res) => {
   let filePath = path.join(base, req.url === "/" ? "index.html" : req.url);
 
@@ -14,21 +27,20 @@ const server = http.createServer((req, res) => {
   }
 
   const ext = path.extname(filePath);
+  const stat = fs.statSync(filePath);
 
-  const contentTypes = {
-    ".html": "text/html",
-    ".js": "application/javascript",
-    ".wasm": "application/wasm",
-    ".pck": "application/octet-stream",
-    ".png": "image/png"
+  const headers = {
+    "Cross-Origin-Opener-Policy": "same-origin",
+    "Cross-Origin-Embedder-Policy": "require-corp",
+    "Content-Type": contentTypes[ext] || "text/plain",
+    "Content-Length": stat.size,  // tells browser exactly how many bytes to expect
   };
 
-  res.writeHead(200, {
-    "Content-Type": contentTypes[ext] || "text/plain",
-    "Cross-Origin-Opener-Policy": "same-origin",
-    "Cross-Origin-Embedder-Policy": "require-corp"
-  });
+  if (gzipEncoded[ext]) {
+    headers["Content-Encoding"] = "gzip";
+  }
 
+  res.writeHead(200, headers);
   fs.createReadStream(filePath).pipe(res);
 });
 

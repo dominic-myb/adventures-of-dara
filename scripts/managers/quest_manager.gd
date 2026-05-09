@@ -206,14 +206,6 @@ func quest_done(_num: int):
 func quest_failed(_num: int):
 	has_active_quest = false
 	Game.QUESTS[_num]["status"] = Game.QUEST_STATE.UNLOCKED
-	# minus heart
-	game_over.visible = true
-	player.can_move = false
-	Game.player_hp -= 1
-	game_over.title_content = "Retry!"
-	if Game.player_hp <= 0:
-		game_over.title_content = "Game Over!"
-		# add here if the HP = 0 condition
 	
 func on_home():
 	pass
