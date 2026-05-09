@@ -5,11 +5,6 @@ const path = require("path");
 const PORT = 3000;
 const base = path.join(__dirname, "dist");
 
-const gzipEncoded = {
-  ".wasm": "application/wasm",
-  ".pck":  "application/octet-stream",
-};
-
 const contentTypes = {
   ".html": "text/html",
   ".js":   "application/javascript",
@@ -33,10 +28,11 @@ const server = http.createServer((req, res) => {
     "Cross-Origin-Opener-Policy": "same-origin",
     "Cross-Origin-Embedder-Policy": "require-corp",
     "Content-Type": contentTypes[ext] || "text/plain",
-    "Content-Length": stat.size,  // tells browser exactly how many bytes to expect
+    "Content-Length": stat.size,
   };
 
-  if (gzipEncoded[ext]) {
+  // only .wasm is pre-gzipped
+  if (ext === ".wasm") {
     headers["Content-Encoding"] = "gzip";
   }
 
